@@ -19,10 +19,10 @@ public class MapTest {
     }
 
     public static void main(String[] args) {
-        //putMapBase();
+        // putMapBase();
         // getMap();
-        // putListValue();
-        getMapStringKey();
+         putListValue();
+        //getMapStringKey();
     }
 
     /**
@@ -50,7 +50,7 @@ public class MapTest {
         }
         System.out.println(map.size());
         System.out.println(map.get(1).getCity());
-        System.out.println(map.get(100).getCity());
+       // System.out.println(map.get(100).getCity());
     }
 
     /**

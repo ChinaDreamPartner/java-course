@@ -1,6 +1,8 @@
 package com.example23.optional;
 
 import java.util.Optional;
+import java.util.PrimitiveIterator;
+import java.util.Spliterator;
 
 public class OptionalTest {
 
@@ -8,7 +10,11 @@ public class OptionalTest {
         //ifPresent(null);
         //map(null);
         //or(new USB("3.0"));
-        getVersion2(new Computer(new Soundcard(new USB("3.0"))));
+        //getVersion2(new Computer(new Soundcard(new USB("3.0"))));
+        //orElse(new USB("3.0"));
+        //orElse(null);
+        //map(new USB(("3.0")));
+        Get(new USB("1.5"));
     }
 
     /**
@@ -49,12 +55,12 @@ public class OptionalTest {
     private static void ifPresent(USB usb) {
         Optional<USB> usbOP = Optional.ofNullable(usb);
         usbOP.ifPresent(u -> System.out.println(u.getVersion()));
-
-        Optional.ofNullable(usb)
-                .ifPresent(u -> System.out.println(u.getVersion()));
-        System.out.println("dfsf");
-        Optional.ofNullable(new Computer())
-                .ifPresent(c -> System.out.println(c.getSoundcard().getUsb()));
+//
+//        Optional.ofNullable(usb)
+//                .ifPresent(u -> System.out.println(u.getVersion()));
+//        System.out.println("dfsf");
+//        Optional.ofNullable(new Computer())
+//                .ifPresent(c -> System.out.println(c.getSoundcard().getUsb()));
     }
 
 
@@ -74,7 +80,9 @@ public class OptionalTest {
     private static void filter(USB usb) {
         Optional.ofNullable(usb)
                 .filter(u -> "3.0".equals(u.getVersion()))
-                .ifPresent(u -> System.out.println(u.getVersion()));
+                .ifPresent(u-> System.out.println(u.getClass()));
+//                .ifPresent(u -> System.out.println(u.getVersion()));
+
     }
 
     /**
@@ -82,9 +90,13 @@ public class OptionalTest {
      * @param usb
      */
     private static void map(USB usb) {
-        Optional.ofNullable(usb)
-                .map(USB::getVersion)
-                .ifPresent(System.out::println);
+//        Optional.ofNullable(usb)
+//                //ifPresent(usb1 -> System.out.println(usb1.getClass()));
+//                .map(USB::getVersion)
+//                //.ifPresent(u-> System.out.println(u.getClass()));
+//                .ifPresent(u->{
+//                    System.out.println((int)u);
+//                });
     }
 
     /**
@@ -116,7 +128,7 @@ public class OptionalTest {
         System.out.println(v1);
 
         String v2 = Optional.ofNullable(usb)
-                .orElse(new USB("1.1"))
+                .orElse(new USB("1.2"))
                 .getVersion();
         System.out.println(v2);
 

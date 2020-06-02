@@ -24,7 +24,7 @@ public class ListTest {
         // updateElement();
         // addRepeatElement();
         // removeElement();
-        // removeElementByIndex();
+         removeElementByIndex();
         // listToArray();
         // arrayToList();
         // iterator();

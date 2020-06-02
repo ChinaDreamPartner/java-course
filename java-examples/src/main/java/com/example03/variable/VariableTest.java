@@ -18,6 +18,7 @@ public class VariableTest {
         //getConstants();
         System.out.println("------------");
         getArrays();
+        getCharacterandStringLiterals();
     }
 
     /**

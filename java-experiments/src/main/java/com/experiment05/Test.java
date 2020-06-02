@@ -1,16 +1,19 @@
 package com.experiment05;
 
+import com.experiment05.entity.College;
 import com.experiment05.entity.Student;
 import com.experiment05.entity.Teacher;
 import com.experiment05.resource.DatabaseUtils;
 
+import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collector;
 
 public class Test {
     public static void main(String[] args) {
-        // System.out.println(getCourseName(DatabaseUtils.getStudents(),8888));
-        // printCollegeName(DatabaseUtils.getStudents(), 201001, 1002);
+         //System.out.println(getCourseName(DatabaseUtils.getStudents(),8888));
+         printCollegeName(DatabaseUtils.getStudents(), 201001, 1001);
     }
 
     /**
@@ -21,7 +24,13 @@ public class Test {
      * @return
      */
     private static String getCourseName(List<Student> student, int sNumber) {
-       return null;
+       return student.stream()
+               .filter(student1 -> student1.getNumber() == sNumber)
+               .findFirst()
+               .map(Student::getTeacher)
+               .map(Teacher::getCollege)
+               .map(College::getName)
+               .orElse("未知学院");
     }
 
     /**
@@ -32,7 +41,14 @@ public class Test {
      * @param tNumber
      */
     private static void printCollegeName(List<Student> students, int sNumber, int tNumber) {
-
+        students.stream()
+                .filter(s->s.getNumber()==sNumber)
+                .findFirst()
+                .map(Student::getTeacher)
+                .stream()
+                .filter(s->s.getNumber() == tNumber)
+                .findFirst()
+                .ifPresentOrElse(q-> System.out.println(q.getCollege().getName()),()-> System.out.println("未知学院"));
     }
 
 }

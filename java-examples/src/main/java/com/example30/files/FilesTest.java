@@ -14,9 +14,10 @@ public class FilesTest {
     public static void main(String[] args) throws IOException {
         //getPath();
         // checkPath();
-        // walk();
+         walk();
         //walk2();
-        deleteDirectory();
+        //deleteDirectory();
+        //readString();
     }
 
     private static void getPath() {
@@ -176,6 +177,7 @@ public class FilesTest {
 
     private static void readString() throws IOException {
         String result = Files.readString(Path.of("D:/test/input.txt"));
+        //Files.writeString(Path.of("D:/test/input.txt"),result);
         System.out.println(result);
     }
 }

@@ -2,13 +2,16 @@ package com.example29.io;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.io.FileOutputStream;
+import java.sql.SQLOutput;
 
 public class IOTest {
     public static void main(String[] args) throws IOException {
-        //getByteStreams();
-        //getAutoCloseable();
-        // getByteArray();
+        getByteStreams();
+        getAutoCloseable();
+        getByteArray();
         getStringsInText();
+
     }
 
     /**
@@ -79,6 +82,10 @@ public class IOTest {
             is.transferTo(os);
         }
     }
+
+
+
+
 
     /**
      * 基于文本文件的具体字符集，读取

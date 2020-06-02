@@ -22,13 +22,14 @@ public class StreamTest {
 
     public static void main(String[] args) {
         // forEach();
-        /*filter(Apple.Color.RED)
-                .forEach(a -> System.out.println(a.getId()));*/
+//        filter(260)
+//                .forEach(a -> System.out.println(a.getId()));
         // map();
         // sorted();
         // sortedReversed();
         // collect();
-        collectGroupingBy2();
+        // collectGroupingBy2();
+       // filter(Apple.Color.GREEN,260);
     }
 
     /**
@@ -62,10 +63,16 @@ public class StreamTest {
      *
      * @param c
      */
-    private static List<Apple> filter(Apple.Color c) {
+    private static List<Apple> filter(int c) {
         return APPLES.stream()
-                .filter(a -> a.getColor() == c)
+                .filter(a -> a.getWeight() >= c)
                 .collect(Collectors.toList());
+
+//        Stream<Apple> appleStream = APPLES.stream();
+//
+//        Stream<Apple> appleStream1 = appleStream.filter(apple -> apple.getColor() == c);
+//        List<Apple> apples = appleStream.collect(Collectors.toList());
+//        return apples;
     }
 
     /**
@@ -75,6 +82,7 @@ public class StreamTest {
      * @param weight
      */
     private static void filter(Apple.Color c, int weight) {
+
         APPLES.stream()
                 .filter(a -> a.getColor() == c)
                 .filter(a -> a.getWeight() >= weight)

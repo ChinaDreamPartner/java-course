@@ -1,5 +1,14 @@
 package com.experiment08;
 
+import java.io.FileOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Comparator;
+
 public class IOTest {
     public static void main(String[] args) {
         String fileName = "C:/example/from.txt";
@@ -14,11 +23,11 @@ public class IOTest {
                         "黄河入海流\r\n" +
                         "欲穷千里目\r\n" +
                         "更上一层楼\r\n";
-        writeToFile(str, fileName);
+        writeToFile(fileName,str);
 
         System.out.println("--------- 基于基本IO流实现文件的复制 ----------");
         String toFile = "C:/example/to.txt";
-        copyByIO(fileName, toFile);
+        copyByNIO(fileName, toFile);
 
         System.out.println("--------- 基于NIO实现文件的复制 ----------");
         String toFile2 = "C:/example/nio/to.txt";
@@ -30,7 +39,7 @@ public class IOTest {
         String dir = "C:/example";
         walkDirectories(dir);
     }
-
+    private static final Path BASE_PATH = Path.of("C:/example");
     /**
      * 基于指定文件名称创建目录及文件
      * 如果文件已经存在，则忽略
@@ -38,7 +47,17 @@ public class IOTest {
      * @param fileName
      */
     private static void createFile(String fileName) {
-
+        Path file = Path.of(fileName);
+        try {
+            Files.createDirectories(file.getParent());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            Files.createFile(file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -49,6 +68,13 @@ public class IOTest {
      * @param content
      */
     private static void writeToFile(String fileName, String content) {
+        Path is = Path.of(fileName);
+        try {
+            Files.writeString(is,content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -59,8 +85,20 @@ public class IOTest {
      * @param targetFile
      */
     private static void copyByIO(String sourceFile, String targetFile) {
+        Path sourceFile1 = Path.of(sourceFile);
+        Path targetFile1 = Path.of(targetFile);
+            try(FileInputStream in = new FileInputStream(String.valueOf(sourceFile1));
+                FileOutputStream out = new FileOutputStream(String.valueOf(targetFile1))) {
+                byte[] buffer = new byte[512];
+                int len;
+                while ((len = in.read(buffer)) != -1) {
+                    out.write(buffer, 0, len);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
-    }
 
     /**
      * 基于NIO，实现文件的复制
@@ -69,6 +107,13 @@ public class IOTest {
      * @param targetFile
      */
     private static void copyByNIO(String sourceFile, String targetFile) {
+        Path is = Path.of(sourceFile);
+        Path os = Path.of(targetFile);
+        try {
+            Files.copy(is, os, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -78,7 +123,12 @@ public class IOTest {
      * @param fileName
      */
     private static void deleteFile(String fileName) {
-
+        Path is = Path.of(fileName);
+        try {
+            Files.deleteIfExists(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

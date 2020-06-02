@@ -3,6 +3,7 @@ package com.example20.collection;
 public class User {
     public static final String HAERBIN = "哈尔滨";
     public static final String BEIJING = "北京";
+    public static final String SHENYANG = "沈阳";
     private int id;
     private String name;
     private String city;
