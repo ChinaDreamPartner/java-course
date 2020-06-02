@@ -137,6 +137,16 @@ public class IOTest {
      * @param dir
      */
     private static void walkDirectories(String dir) {
+        Path d = Path.of(dir);
+        try {
+            Files.walk(d)
+                    .sorted(Comparator.reverseOrder())
+                    .forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
 
