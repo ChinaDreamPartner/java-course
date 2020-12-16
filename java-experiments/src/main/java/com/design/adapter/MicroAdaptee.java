@@ -1,6 +1,6 @@
 package com.design.adapter;
 
-public class Adaptee_Micro {
+public class MicroAdaptee {
     public void Micro_charging(){
         System.out.println("Micro接口");
     }

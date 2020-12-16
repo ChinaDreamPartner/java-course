@@ -2,7 +2,7 @@ package com.design.adapter;
 
 public class Client {
     public static void main(String[] args) {
-        TypeC_USB usb=new Adaper(new Adaptee_Micro());
+        USBTypeC usb=new Adaper(new MicroAdaptee());
         usb.Charging();
         usb.Reading();
     }

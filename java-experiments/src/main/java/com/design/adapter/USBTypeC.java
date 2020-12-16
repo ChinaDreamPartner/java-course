@@ -1,6 +1,6 @@
 package com.design.adapter;
 
-public interface TypeC_USB {
+public interface USBTypeC {
     public void Charging();
     public void Reading();
 }
