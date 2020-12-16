@@ -2,23 +2,26 @@ package com.design.Builder;
 
 /*图纸--有些什么东西，需要建造些什么*/
 public abstract class Builder {
+    protected Product product = new Product();
     //CPU
-    public abstract Builder bulidA(String mes);
+    public abstract void bulidA();
     //内存
-    public abstract Builder bulidB(String mes);
+    public abstract void bulidB();
     //电池
-    public abstract Builder bulidC(String mes);
+    public abstract void bulidC();
     //屏幕
-    public abstract Builder bulidD(String mes);
+    public abstract void bulidD();
     //摄像头
-    public abstract Builder bulidE(String mes);
+    public abstract void bulidE();
     //GPS
-    public abstract Builder bulidF(String mes);
+    public abstract void bulidF();
     //指纹识别
-    public abstract Builder bulidG(String mes);
+    public abstract void bulidG();
     //NFC
-    public abstract Builder bulidH(String mes);
+    public abstract void bulidH();
 
-    public abstract Product build();
+    public Product getResult(){
+        return product;
+    }
 
 }
