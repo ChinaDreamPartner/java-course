@@ -7,57 +7,57 @@ public class cameraConcreteBuilder extends Builder{
     }
 
     @Override
-    Builder bulidA(String mes) {
+    public Builder bulidA(String mes) {
         product.setBuildA(mes);
         return this;
     }
 
     @Override
-    Builder bulidB(String mes) {
+    public Builder bulidB(String mes) {
         product.setBuildB(mes);
         return this;
     }
 
     @Override
-    Builder bulidC(String mes) {
+    public Builder bulidC(String mes) {
         product.setBuildC(mes);
         return this;
     }
 
     @Override
-    Builder bulidD(String mes) {
+    public Builder bulidD(String mes) {
         product.setBuildD(mes);
         return this;
     }
     @Override
-    Builder bulidE(String mes) {
+    public Builder bulidE(String mes) {
         product.setBuildE(mes);
         return this;
     }
 
     @Override
-    Builder bulidF(String mes) {
+    public Builder bulidF(String mes) {
 
         product.setBuildF(mes);
         return this;
     }
 
     @Override
-    Builder bulidG(String mes) {
+    public Builder bulidG(String mes) {
 
         product.setBuildG(mes);
         return this;
     }
 
     @Override
-    Builder bulidH(String mes) {
+    public Builder bulidH(String mes) {
 
         product.setBuildH(mes);
         return this;
     }
 
     @Override
-    Product build() {
+    public Product build() {
         return product;
     }
 

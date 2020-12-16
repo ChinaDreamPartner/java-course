@@ -1,7 +1,7 @@
 package com.design.observer;
 
 //观察者对象
-class ConcreteObserver implements Observer {
+public class ConcreteObserver implements Observer {
 
     private String name;
     private String measure;
