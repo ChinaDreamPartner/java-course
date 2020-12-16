@@ -9,7 +9,7 @@ public class NumberTest {
         System.out.println("-------Random--------");
         getMathRandom();
         System.out.println("-------Performance Testing--------");
-        // testPerformance();
+         testPerformance();
 
     }
 
@@ -19,7 +19,9 @@ public class NumberTest {
         double d  = num.doubleValue();
         int n = num.intValue();
         int num3 = Integer.parseInt("102");
+        System.out.println(d+" "+n);
         System.out.println(Integer.max(10, 15));
+
     }
 
     private static void getMath() {

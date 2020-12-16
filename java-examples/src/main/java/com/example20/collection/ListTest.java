@@ -7,6 +7,7 @@ import java.util.List;
 
 public class ListTest {
     private static final List<User> USERS = create();
+
     private static List<User> create() {
         User u1 = new User("BO");
         User u2 = new User("SUN");
@@ -24,13 +25,13 @@ public class ListTest {
         // updateElement();
         // addRepeatElement();
         // removeElement();
-         removeElementByIndex();
+        //removeElementByIndex();
         // listToArray();
-        // arrayToList();
+         arrayToList();
         // iterator();
         // iteratorRemove();
 
-        removeIf();
+        //removeIf();
     }
 
     /**
@@ -134,8 +135,8 @@ public class ListTest {
     private static void arrayToList() {
         User[] users = USERS.toArray(new User[0]);
 
-        List<User> userList = Arrays.asList(users);
-        userList.add(new User());
+        List<User> userList = Arrays.asList(users);//此处是专为List，不可以修改
+        //userList.add(new User());
         for (User u : userList) {
             System.out.println(u.getName());
         }

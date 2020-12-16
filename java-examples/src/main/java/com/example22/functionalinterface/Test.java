@@ -16,5 +16,6 @@ public class Test {
         list.forEach(x -> {
             return x * x * x;
         });
+//        nums.forEach(System.out::println);
     }
 }

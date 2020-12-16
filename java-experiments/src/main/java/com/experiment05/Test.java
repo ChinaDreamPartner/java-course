@@ -6,14 +6,18 @@ import com.experiment05.entity.Teacher;
 import com.experiment05.resource.DatabaseUtils;
 
 import javax.swing.text.html.Option;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Test {
     public static void main(String[] args) {
-         //System.out.println(getCourseName(DatabaseUtils.getStudents(),8888));
-         printCollegeName(DatabaseUtils.getStudents(), 201001, 1001);
+        System.out.println(1);
+         //System.out.println(getCourseName(DatabaseUtils.getStudents(),201002));
+         //printCollegeName(DatabaseUtils.getStudents(), 201001, 1001);
+
     }
 
     /**
@@ -31,6 +35,8 @@ public class Test {
                .map(Teacher::getCollege)
                .map(College::getName)
                .orElse("未知学院");
+
+
     }
 
     /**
@@ -48,7 +54,14 @@ public class Test {
                 .stream()
                 .filter(s->s.getNumber() == tNumber)
                 .findFirst()
+//                .or(()->{
+//                    return Optional.of(new Teacher(333,"ll"));
+//                })
                 .ifPresentOrElse(q-> System.out.println(q.getCollege().getName()),()-> System.out.println("未知学院"));
+
     }
 
 }
+
+
+

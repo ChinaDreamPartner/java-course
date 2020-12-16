@@ -1,13 +1,14 @@
 package com.example20.collection;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class ImmutableCollectionTest {
     public static void main(String[] args) {
-        // getImmutableList();
-        // getImmutableList2();
-getImmutableMap();
+         getImmutableList();
+         //getImmutableList2();
+        //getImmutableMap();
     }
 
     /**
@@ -18,7 +19,13 @@ getImmutableMap();
         User user = new User("BO");
         User user2 = new User("SUN");
         User user3 = new User("ZHANG");
-        List<User> users = List.of(user, user2, user3);
+        //List<User> users = List.of(user, user2, user3);//这是不可变集合
+        List<User> users = new ArrayList<>();
+        users.add(user);
+        users.add(user2);
+        users.add(user3);
+        User user4 = new User("Li");
+        users.add(user4);
         for (User u : users) {
             System.out.println(u.getName());
         }

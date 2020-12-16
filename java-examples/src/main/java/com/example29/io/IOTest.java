@@ -7,10 +7,12 @@ import java.sql.SQLOutput;
 
 public class IOTest {
     public static void main(String[] args) throws IOException {
-        getByteStreams();
-        getAutoCloseable();
-        getByteArray();
-        getStringsInText();
+        //getByteStreams();
+        //getAutoCloseable();
+        //getByteArray();
+        //getStringsInText();
+       // getTryWithResources2();
+        getTransferTo1();
 
     }
 
@@ -83,6 +85,13 @@ public class IOTest {
         }
     }
 
+    private static void getTransferTo1() throws IOException {
+        try (FileInputStream is =
+                     new FileInputStream("D:/test/input.txt");
+             FileOutputStream os = new FileOutputStream("D:/test/output.txt")) {
+            is.transferTo(os);
+        }
+    }
 
 
 

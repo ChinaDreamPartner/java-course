@@ -1,6 +1,8 @@
 package com.example20.collection;
 
 import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class MapTest {
     private static final List<User> USERS = create();
@@ -21,7 +23,8 @@ public class MapTest {
     public static void main(String[] args) {
         // putMapBase();
         // getMap();
-         putListValue();
+        // putListValue();
+        putListValue2();
         //getMapStringKey();
     }
 
@@ -50,7 +53,7 @@ public class MapTest {
         }
         System.out.println(map.size());
         System.out.println(map.get(1).getCity());
-       // System.out.println(map.get(100).getCity());
+        // System.out.println(map.get(100).getCity());
     }
 
     /**
@@ -79,6 +82,15 @@ public class MapTest {
      * 即，遍历的同时基于不确定的城市名称，创建对应集合，再分组
      */
     private static void putListValue2() {
+        Map<String, List<User>> userGroupMap = USERS.stream().
+                collect(Collectors.groupingBy(User::getCity));
+        userGroupMap.forEach((key, user) -> {
+            System.out.println(key);
+            user.forEach((u) -> {
+                System.out.println(u.getName());
+            });
+        });
+
 
     }
 

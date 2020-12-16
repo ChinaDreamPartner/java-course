@@ -12,12 +12,15 @@ public class FilesTest {
 
 
     public static void main(String[] args) throws IOException {
-        //getPath();
+        // getPath();
+        //getJoinPaths();
         // checkPath();
-         walk();
+        // walk();
         //walk2();
         //deleteDirectory();
-        //readString();
+        readString();
+        //readBytes();
+//        copyByInputStream();
     }
 
     private static void getPath() {

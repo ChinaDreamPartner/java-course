@@ -4,6 +4,8 @@ import java.util.Optional;
 import java.util.PrimitiveIterator;
 import java.util.Spliterator;
 
+import static java.lang.String.valueOf;
+
 public class OptionalTest {
 
     public static void main(String[] args) {
@@ -14,7 +16,8 @@ public class OptionalTest {
         //orElse(new USB("3.0"));
         //orElse(null);
         //map(new USB(("3.0")));
-        Get(new USB("1.5"));
+        //Get(new USB("1.5"));
+
     }
 
     /**
@@ -90,13 +93,13 @@ public class OptionalTest {
      * @param usb
      */
     private static void map(USB usb) {
-//        Optional.ofNullable(usb)
-//                //ifPresent(usb1 -> System.out.println(usb1.getClass()));
-//                .map(USB::getVersion)
-//                //.ifPresent(u-> System.out.println(u.getClass()));
-//                .ifPresent(u->{
-//                    System.out.println((int)u);
-//                });
+        Optional.ofNullable(usb)
+                //ifPresent(usb1 -> System.out.println(usb1.getClass()));
+                .map(USB::getVersion)
+                //.ifPresent(u-> System.out.println(u.getClass()));
+                .ifPresent(u->{
+                    System.out.println(valueOf(u));
+                });
     }
 
     /**

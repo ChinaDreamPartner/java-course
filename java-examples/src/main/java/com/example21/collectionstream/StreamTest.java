@@ -29,7 +29,8 @@ public class StreamTest {
         // sortedReversed();
         // collect();
         // collectGroupingBy2();
-       // filter(Apple.Color.GREEN,260);
+        // filter(Apple.Color.GREEN,260);
+        getFilter();
     }
 
     /**
@@ -161,7 +162,7 @@ public class StreamTest {
      * 函数中，只能操作函数体外的常量
      */
     private static void finalValue() {
-       int count = 0;
+        int count = 0;
         APPLES.forEach(a -> {
             System.out.println(count);
         });
