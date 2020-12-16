@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 //主题对象（被观察者）
-public class Subject implements ISubject {
+public class object implements IObject {
 
     List<Observer> list;
 
     private String message;
 
-    public Subject() {
+    public object() {
         this.list = new ArrayList<>();
     }
 

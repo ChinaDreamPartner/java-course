@@ -1,7 +1,5 @@
 package com.design.observer;
 
-import java.util.ArrayList;
-import java.util.List;
 //测试类
 public class Test {
 
@@ -11,11 +9,11 @@ public class Test {
             ConcreteObserver observer1 = new ConcreteObserver();
 
 
-            Subject subject = new Subject();
-            subject.registerObserver(observer);
-            subject.registerObserver(observer1);
+            object object = new object();
+            object.registerObserver(observer);
+            object.registerObserver(observer1);
 
-            subject.setMessage("工厂发生安全事故啦！！！");
+            object.setMessage("工厂发生安全事故啦！！！");
             observer.setName("总管");
             observer.setMeasure("上报");
             observer1.setName("工人");
