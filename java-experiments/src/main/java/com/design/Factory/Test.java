@@ -16,18 +16,18 @@ public class Test {
         real_oldPhone real_oldPhone =new real_oldPhone();
 
 
-        oldPhone_realFactory.bujian();
-        oldPhone_realFactory.zuzhuang();
+        oldPhone_realFactory.module();
+        oldPhone_realFactory.assemble();
         real_oldPhone.show();
         System.out.println("\n");
 
-        cameraPhone_realFactory.bujian();
-        cameraPhone_realFactory.zuzhuang();
+        cameraPhone_realFactory.module();
+        cameraPhone_realFactory.assemble();
         real_cameraPhone.show();
         System.out.println("\n");
 
-        maxPhone_realFactory.bujian();;
-        maxPhone_realFactory.zuzhuang();
+        maxPhone_realFactory.module();
+        maxPhone_realFactory.assemble();
         real_maxPhone.show();
         System.out.println("\n");
 
